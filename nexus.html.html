@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus - Home Feed</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+body {
+    background-color: #f0f4f3;
+    color: #1f2937;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.logo {
+    color: #0d9488;
+    font-size: 1.5rem;
+}
+.search-bar {
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+}
+.nav-middle {
+    display: flex;
+    gap: 30px;
+}
+.nav-icon {
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+.nav-icon.active, .nav-icon:hover {
+    background-color: #f3f4f6;
+    border-bottom: 3px solid #0d9488;
+}
+.main-container {
+    display: grid;
+    grid-template-columns: 240px 1fr 280px;
+    gap: 20px;
+    max-width: 1280px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+.main-container.single-column {
+    display: block;
+    max-width: 800px;
+}
+.sidebar {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    height: fit-content;
+    border: 1px solid #e5e7eb;
+}
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.sidebar-menu a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+}
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.create-post, .post-card, .grid-card, .profile-header, .profile-section {
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+.create-post {
+    display: flex;
+    gap: 10px;
+}
+.post-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+}
+.post-btn {
+    background-color: #0d9488;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.post-time {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+.post-body {
+    margin-bottom: 12px;
+}
+.post-actions {
+    display: flex;
+    gap: 15px;
+}
+.post-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4b5563;
+    font-weight: 500;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+.profile-header {
+    text-align: center;
+    padding: 30px;
+}
+.avatar-large {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+</style>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <h1 class="logo">Nexus</h1>
+            <input type="text" placeholder="Search Nexus..." class="search-bar">
+        </div>
+        <div class="nav-middle">
+            <a href="index.html" class="nav-icon active">🏠</a>
+            <a href="profile.html" class="nav-icon">👤</a>
+        </div>
+        <div class="nav-right">
+            <span class="profile-badge">Alex R.</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar-left">
+            <ul class="side-menu">
+                <li><a href="index.html" class="active">Feed</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="#">Explore Groups</a></li>
+                <li><a href="#">Bookmarks</a></li>
+            </ul>
+        </aside>
+
+        <!-- Central Content Feed -->
+        <main class="feed-center">
+            <div class="create-post-card">
+                <input type="text" placeholder="Share a new thought with your nexus..." class="post-input">
+                <button class="btn-primary">Publish</button>
+            </div>
+
+            <div class="post-card">
+                <div class="post-header">
+                    <h3>Elena Rostova</h3>
+                    <span class="timestamp">2 hours ago</span>
+                </div>
+                <p class="post-text">Just launched our brand new open-source design system! Check out the modular grids and dark mode tokens we built.</p>
+                <div class="post-actions">
+                    <button class="action-btn">❤️ Like (42)</button>
+                    <button class="action-btn">💬 Comment (7)</button>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-header">
+                    <h3>Devon Lane</h3>
+                    <span class="timestamp">5 hours ago</span>
+                </div>
+                <p class="post-text">Exploring the hills outside the city today. Fresh air does wonders for code debugging blocks!</p>
+                <div class="post-actions">
+                    <button class="action-btn">❤️ Like (19)</button>
+                    <button class="action-btn">💬 Comment (2)</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar-right">
+            <div class="widget">
+                <h3>Trending Topics</h3>
+                <ul class="trend-list">
+                    <li>#WebDev2026</li>
+                    <li>#MinimalistUI</li>
+                    <li>#GlobalTechMeetup</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
